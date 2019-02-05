@@ -59,36 +59,61 @@
                     }
                 }
 
-                // try {
-                    $(window).on("mousemove", function (document) {
-                        $(".circle").each(function (i) {
-                            var x0 = +$(".circle:eq(" + i + ")").data("x") + $(".circle:eq(" + i + ")").width() / 2,
-                                y0 = +$(".circle:eq(" + i + ")").data("y") + $(".circle:eq(" + i + ")").width() / 2,
-                                dx = document.clientX - x0,
-                                dy = document.clientY - y0;
-                            // $(".circle:eq(" + i + ")").removeClass("transition");
-                            // return setTimeout(function () {
-                                // return
-                                Math.sqrt(dx * dx + dy * dy) < $(".circle:eq(" + i + ")").width() ? 
-                                    (function () {
-                                        $(".circle:eq(" + i + ")").css({
-                                            left: x0 - dx - $(".circle:eq(" + i + ")").width() / 2 + "px",
-                                            top: y0 - dy - $(".circle:eq(" + i + ")").width() / 2 + "px"
-                                        });
-                                    })() : 
-                                    (function () {
-                                        // $(".circle:eq(" + i + ")").addClass("transition");
-                                        $(".circle:eq(" + i + ")").css({
-                                            left: x0 - $(".circle:eq(" + i + ")").width() / 2 + "px",
-                                            top: y0 - $(".circle:eq(" + i + ")").width() / 2 + "px"
-                                        });
-                                    })();
-                            // }, i);
-                        });
+                // // try {
+                //     $(window).on("mousemove", function (document) {
+                //         $(".circle").each(function (i) {
+                //             var x0 = +$(".circle:eq(" + i + ")").data("x") + $(".circle:eq(" + i + ")").width() / 2,
+                //                 y0 = +$(".circle:eq(" + i + ")").data("y") + $(".circle:eq(" + i + ")").width() / 2,
+                //                 dx = document.clientX - x0,
+                //                 dy = document.clientY - y0;
+                //             // $(".circle:eq(" + i + ")").removeClass("transition");
+                //             // return setTimeout(function () {
+                //                 // return
+                //                 Math.sqrt(dx * dx + dy * dy) < $(".circle:eq(" + i + ")").width() ? 
+                //                     (function () {
+                //                         $(".circle:eq(" + i + ")").css({
+                //                             left: x0 - dx - $(".circle:eq(" + i + ")").width() / 2 + "px",
+                //                             top: y0 - dy - $(".circle:eq(" + i + ")").width() / 2 + "px"
+                //                         });
+                //                     })() : 
+                //                     (function () {
+                //                         // $(".circle:eq(" + i + ")").addClass("transition");
+                //                         $(".circle:eq(" + i + ")").css({
+                //                             left: x0 - $(".circle:eq(" + i + ")").width() / 2 + "px",
+                //                             top: y0 - $(".circle:eq(" + i + ")").width() / 2 + "px"
+                //                         });
+                //                     })();
+                //             // }, i);
+                //         });
+                //     });
+                // // } catch (window) {
+                // //     if (window) { alert(window); }
+                // // }
+
+                $(window).on("mousemove", function (document) {
+                    $(".circle").each(function (i) {
+                        var circle = $(".circle:eq(" + i + ")"),
+                        width = - circle.width(),
+                        x0 = circle.data("x") + width / 2,
+                        y0 = circle.data("y") + width / 2,
+                        dx = document.clientX - x0,
+                        dy = document.clientY - y0;
+                        Math.sqrt(dx * dx + dy * dy) < circle.width() ?
+                        (function () {
+                            circle.css({
+                                left: x0 - dx - width / 2 + "px",
+                                top: y0 - dy - width / 2 + "px"
+                            });
+                        })() :
+                        (function () {
+                            circle.css({
+                                left: x0 - width / 2 + "px",
+                                top: y0 - width / 2 + "px"
+                            });
+                        })();
                     });
-                // } catch (window) {
-                //     if (window) { alert(window); }
-                // }
+                });
+
 
         </script>
 
