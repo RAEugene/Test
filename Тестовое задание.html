@@ -93,11 +93,11 @@
                 $(window).on("mousemove", function (document) {
                     $(".circle").each(function (i) {
                         var circle = $(".circle:eq(" + i + ")"),
-                        width = - circle.width(),
-                        x0 = circle.data("x") + width / 2,
-                        y0 = circle.data("y") + width / 2,
-                        dx = document.clientX - x0,
-                        dy = document.clientY - y0;
+                            width = - circle.width(),
+                            x0 = circle.data("x") + width / 2,
+                            y0 = circle.data("y") + width / 2,
+                            dx = document.clientX - x0,
+                            dy = document.clientY - y0;
                         Math.sqrt(dx * dx + dy * dy) < circle.width() ?
                         (function () {
                             circle.css({
